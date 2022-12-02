@@ -42,4 +42,10 @@
   font-weight: 400;
   box-shadow: black;
 }
-
+.retangleBarClock {
+  background-color: #f1f1f1;
+  width: 64px;
+  height: 6px;
+  margin-top: 4px;
+  margin-bottom: 4rem;
+}
