@@ -4,13 +4,13 @@
   padding: 0;
   margin: 0;
   box-sizing: 0;
-  color: #f1f1f1;
 }
-
-.container {
+body {
   width: 100vw;
   height: 100vh;
   background-color: #B076D4;
+}
+.container {
   align-items: center;
   justify-content: center;
 }
@@ -24,6 +24,7 @@
   top: 20px;
   justify-content: center;
   align-items: center;
+  box-shadow: 1px 4px 4px rgb(0, 0, 0, 25%);
 
 }
 .clockContent {
@@ -38,9 +39,12 @@
   position: relative;
 }
 .clockContent .clock h1 {
+  margin-top: 70px;
   font-size: 128px;
   font-weight: 400;
+  color: #f1f1f1;
   box-shadow: black;
+  text-shadow: 3px 4px 4px rgb(0, 0, 0, 25%);
 }
 .retangleBarClock {
   background-color: #f1f1f1;
@@ -48,4 +52,33 @@
   height: 6px;
   margin-top: 4px;
   margin-bottom: 4rem;
+  box-shadow: 0px 4px 4px rgb(0, 0, 0, 25%);
 }
+.buttons {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+}
+.buttons div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.buttons #buttonReset {
+  color: #f1f1f1;
+  font-size: 48px;
+  text-transform: uppercase;
+  font-weight: 400;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-shadow: 3px 4px 4px rgb(0, 0, 0, 25%);
+}
+.buttons #retangleBarReset {
+  background-color: #f1f1f1;
+  width: 64px;
+  height: 6px;
+  margin-top: 15px;
+  box-shadow: 0px 4px 4px rgb(0, 0, 0, 25%);
+}
+
