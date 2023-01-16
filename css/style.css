@@ -40,11 +40,11 @@ body {
   transform-origin: right center;
 }
 .semiCircle:nth-child(1) {
-  background-color: #B076D4;
+  background-color: #a66fc8;
   z-index: 2;
 }
 .semiCircle:nth-child(2) {
-  background-color: #B076D4;
+  background-color: #a66fc8;
   z-index: 3;
 }
 .semiCircle:nth-child(3) {
@@ -67,10 +67,6 @@ body {
   border-radius: 50%;
   z-index: 10;
 }
-.miniCircleContainer:hover {
-  transform: rotate(360deg);
-  transition: 2s linear;
-}
 .outwestCircle {
   width: 96%;
   height: 96%;
@@ -80,7 +76,7 @@ body {
   z-index: 5;
 }
 /* Teste de Rotação */
-.clockContainerCircle:hover .semiCircle:nth-child(1) {
+/* .clockContainerCircle:hover .semiCircle:nth-child(1) {
   transform: rotate(180deg);
   transition: 1s linear;
 }
@@ -92,6 +88,10 @@ body {
   opacity: 0;
   transition: opacity 0s 1s;
 }
+.miniCircleContainer:hover {
+  transform: rotate(360deg);
+  transition: 2s linear;
+} */
 
 /* Relogio */
 .clockContent {
