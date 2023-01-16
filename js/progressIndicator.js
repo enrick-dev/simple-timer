@@ -1,9 +1,10 @@
 const semiCircles = document.querySelectorAll('.semiCircle');
-const miniCircle = document.querySelector('.miniCircleContainer')
+const miniCircle = document.querySelector('.miniCircleContainer');
+const clockNumbers = document.querySelector('.clock');
 
 const hr = 0;
 const min = 0;
-const sec = 5;
+const sec = 6;
 
 const hours = hr * 3600000;
 const minutes = min * 60000;
@@ -36,19 +37,26 @@ function countDownTimer() {
 
 
   //numeros do timer
-  const hrs = Math.floor((remaingTime / (1000 * 60 * 60)) % 24);
-  const mins = Math.floor((remaingTime / (1000 * 60)) % 60);
-  const secs = Math.floor((remaingTime / (1000)) % 60);
+  const hrs = Math.floor((remaingTime / (1000 * 60 * 60)) % 24).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+  const mins = Math.floor((remaingTime / (1000 * 60)) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+  const secs = Math.ceil((remaingTime / (1000)) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
 
-  
+  clockNumbers.innerHTML = `<h1>${hrs}:${mins}:${secs}</h1>`;
 
-
+  // if(remaingTime <= 5000) {
+  //   semiCircles[0].style.backgroundColor = '#9229d4';
+  //   semiCircles[1].style.backgroundColor = '#9229d4';
+  //   clockNumbers.style.color = '#9229d4';
+  // }
 
   if(remaingTime <= 0) {
     clearInterval(timerLoop);
     semiCircles[0].style.display = 'none';
     semiCircles[1].style.display = 'none';
     semiCircles[2].style.display = 'none';
+
+    clockNumbers.innerHTML = `<h1>00:00:00</h1>`;
+    clockNumbers.style.color = '#ceade3';
   }
 }
 
