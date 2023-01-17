@@ -1,6 +1,7 @@
 const semiCircles = document.querySelectorAll('.semiCircle');
 const miniCircle = document.querySelector('.miniCircleContainer');
 const clockNumbers = document.querySelector('.clock');
+const clockNumbersInput = document.querySelectorAll('.clockInput');
 
 const hr = 0;
 const min = 0;
@@ -41,7 +42,24 @@ function countDownTimer() {
   const mins = Math.floor((remaingTime / (1000 * 60)) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
   const secs = Math.ceil((remaingTime / (1000)) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
 
-  clockNumbers.innerHTML = `<h1>${hrs}:${mins}:${secs}</h1>`;
+
+  clockNumbers.innerHTML = `
+    <input type="number" class="clockInput" placeholder="${hrs}">
+    <input type="number" class="clockInput" placeholder="${mins}">
+    <input type="number" class="clockInput" placeholder="${secs}">
+
+    <style>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .clockInput {
+        cursor: default;
+      }
+    </style>
+
+  `;
 
   // if(remaingTime <= 5000) {
   //   semiCircles[0].style.backgroundColor = '#9229d4';
@@ -55,7 +73,11 @@ function countDownTimer() {
     semiCircles[1].style.display = 'none';
     semiCircles[2].style.display = 'none';
 
-    clockNumbers.innerHTML = `<h1>00:00:00</h1>`;
+    clockNumbers.innerHTML = `
+      <input type="number" class="clockInput" placeholder="00">
+      <input type="number" class="clockInput" placeholder="00">
+      <input type="number" class="clockInput" placeholder="00">
+    `;
     clockNumbers.style.color = '#ceade3';
   }
 }
