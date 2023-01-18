@@ -21,14 +21,14 @@
 
       <div class="clockContent outwestCircle">
         <div class="clock">
-          <input type="number" class="clockInput" placeholder="00">
-          <input type="number" class="clockInput" placeholder="00">
-          <input type="number" class="clockInput" placeholder="00">
+          <input type="number" class="clockInput" id="hours" placeholder="00" max="99" min="0">
+          <input type="number" class="clockInput" id="minutes" placeholder="00" max="99" min="0">
+          <input type="number" class="clockInput" id="seconds" placeholder="00" max="99" min="0">
         </div>
         <span class="retangleBarClock"></span>
         <div class="playPause">
           <img src="./assets/Pause.svg" alt="Pause" style="display:none;">
-          <img src="./assets/Play.svg" alt="Play">
+          <button id="start"><img src="./assets/Play.svg" alt="Play"></button>
         </div>
       </div>
     </section>
