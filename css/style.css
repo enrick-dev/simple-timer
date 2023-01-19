@@ -60,9 +60,8 @@ body {
   z-index: 4;
 }
 .miniCircleContainer {
-  width: 0%;
+  width: 0.2%;
   height: 103%;
-  overflow: s;
   position: absolute;
   transform-origin: right center;
   z-index: 6;

@@ -47,9 +47,9 @@ start.addEventListener('click', () => {
   
   
     clockNumbers.innerHTML = `
-      <input type="number" class="clockInput" placeholder="${hrs}" max="99" min="0">
-      <input type="number" class="clockInput" placeholder="${mins}" max="99" min="0">
-      <input type="number" class="clockInput" placeholder="${secs}" max="99" min="0">
+      <input type="number" class="clockInput" placeholder="${hrs}" max="99" min="0" disabled>
+      <input type="number" class="clockInput" placeholder="${mins}" max="99" min="0" disabled>
+      <input type="number" class="clockInput" placeholder="${secs}" max="99" min="0" disabled>
   
       <style>
         .clockInput {
@@ -70,7 +70,7 @@ start.addEventListener('click', () => {
     `;
     start.disabled = true;
     reset.disabled = false;
-  
+
     // if(remaingTime <= 5000) {
     //   semiCircles[0].style.backgroundColor = '#9229d4';
     //   semiCircles[1].style.backgroundColor = '#9229d4';
