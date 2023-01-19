@@ -11,35 +11,37 @@
 </head>
 <body>
   <main class="container">
-    <section class="clockContainerCircle">
-      <div class="semiCircle"></div>
-      <div class="semiCircle"></div>
-      <div class="semiCircle"></div>
-      <div class="miniCircleContainer">
-        <div class="miniCircle"></div>
-      </div>
-
-      <div class="clockContent outwestCircle">
-        <div class="clock">
-          <input type="number" class="clockInput" id="hours" placeholder="00" max="99" min="0">
-          <input type="number" class="clockInput" id="minutes" placeholder="00" max="99" min="0">
-          <input type="number" class="clockInput" id="seconds" placeholder="00" max="99" min="0">
+    <section class="clockContainer">
+      <div class="clockContainerCircle">
+        <div class="semiCircle"></div>
+        <div class="semiCircle"></div>
+        <div class="semiCircle"></div>
+        <div class="miniCircleContainer">
+          <div class="miniCircle"></div>
         </div>
-        <span class="retangleBarClock"></span>
-        <div class="playPause">
-          <img src="./assets/Pause.svg" alt="Pause" style="display:none;">
-          <button id="start"><img src="./assets/Play.svg" alt="Play"></button>
+
+        <div class="clockContent outwestCircle">
+          <div class="clock">
+            <input type="number" class="clockInput" id="hours" placeholder="00" max="99" min="0">
+            <input type="number" class="clockInput" id="minutes" placeholder="00" max="99" min="0">
+            <input type="number" class="clockInput" id="seconds" placeholder="00" max="99" min="0">
+          </div>
+          <span class="retangleBarClock"></span>
+          <div class="playPause">
+            <img src="./assets/Pause.svg" alt="Pause" style="display:none;">
+            <button id="start" no-disabled><img src="./assets/Play.svg" alt="Play"></button>
+          </div>
         </div>
       </div>
     </section>
-    <script src="./js/progressIndicator.js"></script>
 
     <section class="buttons">
       <div>
-        <button id="buttonReset">reset</button>
+        <button id="buttonReset" disabled>reset</button>
         <span id="retangleBarReset"></span>
       </div>
     </section>
   </main>
+  <script src="./js/progressIndicator.js"></script>
 </body>
 </html>

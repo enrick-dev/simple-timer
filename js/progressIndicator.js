@@ -2,14 +2,13 @@ const semiCircles = document.querySelectorAll('.semiCircle');
 const miniCircle = document.querySelector('.miniCircleContainer');
 const clockNumbers = document.querySelector('.clock');
 const clockNumbersInput = document.querySelectorAll('.clockInput');
-const start = document.getElementById('start')
-
+const start = document.getElementById('start');
+const reset = document.getElementById('buttonReset');
 
 start.addEventListener('click', () => {
   let hr = document.getElementById('hours');
   let min = document.getElementById('minutes');
   let sec = document.getElementById('seconds');
-
 
   const hours = hr.value * 3600000;
   const minutes = min.value * 60000;
@@ -53,17 +52,24 @@ start.addEventListener('click', () => {
       <input type="number" class="clockInput" placeholder="${secs}" max="99" min="0">
   
       <style>
-        // input::-webkit-outer-spin-button,
-        // input::-webkit-inner-spin-button {
-        //   -webkit-appearance: none;
-        //   margin: 0;
-        // }
         .clockInput {
           cursor: default;
+        } 
+        .playPause #start {
+          cursor: default;
+          opacity: 50%;
+        }
+        .buttons #buttonReset {
+          cursor: pointer;
+          opacity: 100%;
+        }
+        .buttons #retangleBarReset {
+          opacity: 100%;
         }
       </style>
-  
     `;
+    start.disabled = true;
+    reset.disabled = false;
   
     // if(remaingTime <= 5000) {
     //   semiCircles[0].style.backgroundColor = '#9229d4';
@@ -77,6 +83,8 @@ start.addEventListener('click', () => {
       semiCircles[0].style.transform = 'rotate(0deg)';
       semiCircles[1].style.transform = `rotate(0deg)`;
       miniCircle.style.transform = `rotate(0deg)`;
+      start.disabled = false;
+      reset.disabled = true;
   
       clockNumbers.innerHTML = `
         <input type="number" class="clockInput" id="hours" placeholder="00" max="99" min="0">
@@ -86,6 +94,24 @@ start.addEventListener('click', () => {
       clockNumbers.style.color = '#ceade3';
     }
   }
+
+  reset.addEventListener('click', () => {
+    clearInterval(timerLoop);
+    semiCircles[2].style.display = 'block';
+    semiCircles[0].style.transform = 'rotate(0deg)';
+    semiCircles[1].style.transform = `rotate(0deg)`;
+    miniCircle.style.transform = `rotate(0deg)`;
+    start.disabled = false;
+    reset.disabled = true;
+
+    clockNumbers.innerHTML = `
+      <input type="number" class="clockInput" id="hours" placeholder="00" max="99" min="0">
+      <input type="number" class="clockInput" id="minutes" placeholder="00" max="99" min="0">
+      <input type="number" class="clockInput" id="seconds" placeholder="00" max="99" min="0">
+    `;
+  })
+
+
 })
 
 
