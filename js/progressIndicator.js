@@ -46,10 +46,10 @@ start.addEventListener('click', () => {
   
     //numeros do timer
     const dys = Math.floor((remaingTime / (1000 * 60 * 60)) / 24).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
-    console.log(dys)
     const hrs = Math.floor((remaingTime / (1000 * 60 * 60)) % 24).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
     const mins = Math.floor((remaingTime / (1000 * 60)) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
     const secs = Math.ceil((remaingTime / (1000)) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+    const secsss = (remaingTime / (1000)) % 60;
   
     if(dys > 0) {
       clockNumbers.innerHTML = ` 
@@ -112,10 +112,26 @@ start.addEventListener('click', () => {
     //   semiCircles[1].style.backgroundColor = '#9229d4';
     //   clockNumbers.style.color = '#9229d4';
     // }
-  
-    if(remaingTime <= 0) {
+    console.log(secsss, remaingTime)
+    console.log( secsss > 0, secsss <= 0.5, remaingTime <= 10)
+    if(secsss > 0 && secsss <= 0.9 && remaingTime <= 10) {
       clearInterval(timerLoop);
       alarme.play();
+      semiCircles[2].style.display = 'block';
+      semiCircles[0].style.transform = 'rotate(0deg)';
+      semiCircles[1].style.transform = `rotate(0deg)`;
+      miniCircle.style.transform = `rotate(0deg)`;
+      start.disabled = false;
+      reset.disabled = true;
+  
+      clockNumbers.innerHTML = `
+        <input type="text" class="clockInput" id="hours" placeholder="00" maxlength="2">
+        <input type="text" class="clockInput" id="minutes" placeholder="00" maxlength="2">
+        <input type="text" class="clockInput" id="seconds" placeholder="00" maxlength="2">
+      `;
+      clockNumbers.style.color = '#ceade3';
+    }else if(secsss <= 0 ) {
+      clearInterval(timerLoop);
       semiCircles[2].style.display = 'block';
       semiCircles[0].style.transform = 'rotate(0deg)';
       semiCircles[1].style.transform = `rotate(0deg)`;
