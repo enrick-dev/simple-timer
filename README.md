@@ -1,9 +1,9 @@
 # Temporizador moderno e simples
-#`Programado com Javascript puro` && `Design montado por mim no Figma`
+## `Programado com Javascript puro` && `Design montado por mim no Figma`
 
 <img src="./readme/FOTO1.jpg" alt="">
 
-###Quando colocado as horas acima de 24 é contado os dias como mostra abaix0
+### Quando colocado as horas acima de 24 é contado os dias como mostra abaix0
 #
 <img src="./readme/FOTO2.jpg" alt="">
 #
