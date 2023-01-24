@@ -5,10 +5,12 @@ const clockNumbersInput = document.querySelectorAll('.clockInput');
 const start = document.getElementById('start');
 const reset = document.getElementById('buttonReset');
 
+
 start.addEventListener('click', () => {
   let hr = document.getElementById('hours');
   let min = document.getElementById('minutes');
   let sec = document.getElementById('seconds');
+
 
   const hours = hr.value * 3600000;
   const minutes = min.value * 60000;
@@ -41,15 +43,21 @@ start.addEventListener('click', () => {
   
   
     //numeros do timer
+    const dys = Math.floor((remaingTime / (1000 * 60 * 60)) / 24).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
+    console.log(dys)
     const hrs = Math.floor((remaingTime / (1000 * 60 * 60)) % 24).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
     const mins = Math.floor((remaingTime / (1000 * 60)) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
     const secs = Math.ceil((remaingTime / (1000)) % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false});
   
-  
-    clockNumbers.innerHTML = `
-      <input type="number" class="clockInput" placeholder="${hrs}" max="99" min="0" disabled>
-      <input type="number" class="clockInput" placeholder="${mins}" max="99" min="0" disabled>
-      <input type="number" class="clockInput" placeholder="${secs}" max="99" min="0" disabled>
+    if(dys > 0) {
+      clockNumbers.innerHTML = ` 
+      <div class="clock">
+      <div class="clockDaysContainer">
+        <h1 id="clockDays">${dys} D</h1>
+      </div>
+      <input type="text" class="clockInput" placeholder="${hrs}" maxlength="2" disabled>
+      <input type="text" class="clockInput" placeholder="${mins}" maxlength="2" disabled>
+      <input type="text" class="clockInput" placeholder="${secs}" maxlength="2" disabled>
   
       <style>
         .clockInput {
@@ -68,6 +76,30 @@ start.addEventListener('click', () => {
         }
       </style>
     `;
+    } else if(dys <= 0) {
+      clockNumbers.innerHTML = `
+      <input type="text" class="clockInput" placeholder="${hrs}" maxlength="2" disabled>
+      <input type="text" class="clockInput" placeholder="${mins}" maxlength="2" disabled>
+      <input type="text" class="clockInput" placeholder="${secs}" maxlength="2" disabled>
+  
+      <style>
+        .clockInput {
+          cursor: default;
+        } 
+        .playPause #start {
+          cursor: default;
+          opacity: 50%;
+        }
+        .buttons #buttonReset {
+          cursor: pointer;
+          opacity: 100%;
+        }
+        .buttons #retangleBarReset {
+          opacity: 100%;
+        }
+      </style>
+    `;
+    }
     start.disabled = true;
     reset.disabled = false;
 
@@ -87,9 +119,9 @@ start.addEventListener('click', () => {
       reset.disabled = true;
   
       clockNumbers.innerHTML = `
-        <input type="number" class="clockInput" id="hours" placeholder="00" max="99" min="0">
-        <input type="number" class="clockInput" id="minutes" placeholder="00" max="99" min="0">
-        <input type="number" class="clockInput" id="seconds" placeholder="00" max="99" min="0">
+        <input type="text" class="clockInput" id="hours" placeholder="00" maxlength="2">
+        <input type="text" class="clockInput" id="minutes" placeholder="00" maxlength="2">
+        <input type="text" class="clockInput" id="seconds" placeholder="00" maxlength="2">
       `;
       clockNumbers.style.color = '#ceade3';
     }
@@ -105,9 +137,9 @@ start.addEventListener('click', () => {
     reset.disabled = true;
 
     clockNumbers.innerHTML = `
-      <input type="number" class="clockInput" id="hours" placeholder="00" max="99" min="0">
-      <input type="number" class="clockInput" id="minutes" placeholder="00" max="99" min="0">
-      <input type="number" class="clockInput" id="seconds" placeholder="00" max="99" min="0">
+      <input type="text" class="clockInput" id="hours" placeholder="00" maxlength="2">
+      <input type="text" class="clockInput" id="minutes" placeholder="00" maxlength="2">
+      <input type="text" class="clockInput" id="seconds" placeholder="00" maxlength="2">
     `;
   })
 })

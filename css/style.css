@@ -131,6 +131,17 @@ body {
 .clockInput::after {
   border: none;
 }
+.clockDaysContainer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#clockDays {
+  font-size: 35pt;
+  padding-right: 28px;
+}
 .retangleBarClock {
   background-color: #f1f1f1;
   width: 64px;
@@ -206,6 +217,10 @@ input::-webkit-inner-spin-button {
   .clockInput::placeholder {
     font-size: 95px;
   }
+  #clockDays {
+    font-size: 26pt;
+    padding-right: 25px;
+  }
   .retangleBarClock {
     width: 60px;
     height: 5px;
@@ -242,6 +257,10 @@ input::-webkit-inner-spin-button {
   .clockInput::placeholder {
     font-size: 70px;
   }
+  #clockDays {
+    font-size: 20pt;
+    padding-right: 33px;
+  }
   .retangleBarClock {
     width: 50px;
     height: 4px;
@@ -277,6 +296,10 @@ input::-webkit-inner-spin-button {
   }
   .clockInput::placeholder {
     font-size: 65px;
+  }
+  #clockDays {
+    font-size: 15pt;
+    padding-right: 20px;
   }
   .retangleBarClock {
     width: 45px;
