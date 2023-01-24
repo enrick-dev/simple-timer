@@ -1,6 +1,6 @@
 # Temporizador moderno e simples
 ## `Programado com Javascript puro` 
-&& 
+#
 ## `Design montado por mim no Figma`
 ### Links no final da pagina
 
