@@ -6,7 +6,7 @@
 <img src="./readme/FOTO1.jpg" alt="">
 
 ## Quando colocado acima de 24 horas é contado os dias como mostra abaixo
-#
+
 <img src="./readme/FOTO2.jpg" alt="">
 
 [LINK DO WEBSITE](https://rick-png.github.io/simple-timer/)
