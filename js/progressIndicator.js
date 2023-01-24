@@ -4,6 +4,7 @@ const clockNumbers = document.querySelector('.clock');
 const clockNumbersInput = document.querySelectorAll('.clockInput');
 const start = document.getElementById('start');
 const reset = document.getElementById('buttonReset');
+const alarme = document.querySelector('audio');
 
 
 start.addEventListener('click', () => {
@@ -23,6 +24,7 @@ start.addEventListener('click', () => {
 
   const timerLoop = setInterval(countDownTimer);
   function countDownTimer() {
+
     const currentTime = Date.now();
     const remaingTime = futureTime - currentTime;
     const angle = (remaingTime / setTime) * 360;
@@ -102,6 +104,8 @@ start.addEventListener('click', () => {
     }
     start.disabled = true;
     reset.disabled = false;
+    alarme.pause();
+    alarme.currentTime = 0;
 
     // if(remaingTime <= 5000) {
     //   semiCircles[0].style.backgroundColor = '#9229d4';
@@ -111,6 +115,7 @@ start.addEventListener('click', () => {
   
     if(remaingTime <= 0) {
       clearInterval(timerLoop);
+      alarme.play();
       semiCircles[2].style.display = 'block';
       semiCircles[0].style.transform = 'rotate(0deg)';
       semiCircles[1].style.transform = `rotate(0deg)`;
@@ -129,6 +134,8 @@ start.addEventListener('click', () => {
 
   reset.addEventListener('click', () => {
     clearInterval(timerLoop);
+    alarme.pause();
+    alarme.currentTime = 0;
     semiCircles[2].style.display = 'block';
     semiCircles[0].style.transform = 'rotate(0deg)';
     semiCircles[1].style.transform = `rotate(0deg)`;
